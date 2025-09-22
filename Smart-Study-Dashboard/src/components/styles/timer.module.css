@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
@@ -12,6 +12,24 @@
     margin: 3rem auto;
     padding: 30px;
     border-radius: 2rem;
+    transition: transform 0.8s ease-in-out;
+    transform: scale(1);
+}
+
+.fullTimerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  z-index: 1000; /* Ensure the timer is on top of other content */
+  transform: scale(2); /* This value determines the 'final' size of the element */
+  transition: transform 0.8s ease-in-out;
 }
 
 .timerContainer p {
@@ -30,13 +48,14 @@
     padding: 20px;
     border-radius: .9rem;
     width: 80%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
+    min-width: 100px;
+    transition: all 0.25s ease;
 }
 
 .startBtn {
     background-color: #60E62B;
-    transition: all 0.25s ease;  
 }
 
 .startBtn:hover {
@@ -47,7 +66,6 @@
 
 .endBtn {
     background-color: #E63946;
-    transition: all 0.25s ease;  
 }
 
 .endBtn:hover {
@@ -56,13 +74,22 @@
     cursor: pointer;
 }
 
-.resetBtn {
+.PauseBtn {
     background-color: #B4B8C5;
-    transition: all 0.25s ease;  
 }
 
-.resetBtn:hover {
+.PauseBtn:hover {
     background-color: #4C5B5C;
     border: 3px solid #E9EBF8;
+    cursor: pointer;
+}
+
+.ResumeBtn {
+    background-color: #5cb85c; 
+}
+
+.ResumeBtn:hover {
+    background-color: #449d44;
+    border: 3px solid #77e677; 
     cursor: pointer;
 }
