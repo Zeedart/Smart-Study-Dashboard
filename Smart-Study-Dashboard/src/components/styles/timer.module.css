@@ -17,19 +17,25 @@
 }
 
 .fullTimerContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  z-index: 1000; /* Ensure the timer is on top of other content */
-  transform: scale(2); /* This value determines the 'final' size of the element */
-  transition: transform 0.8s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    z-index: 1000;
+    transform: scale(2);
+    transition: transform 0.8s ease-in-out;
+}
+
+.fullTimerContainer p {
+    font-size: 3rem;
+    font-family: inter, "san-serif";
+    margin-bottom: 20px;
 }
 
 .timerContainer p {
@@ -85,11 +91,11 @@
 }
 
 .ResumeBtn {
-    background-color: #5cb85c; 
+    background-color: #5cb85c;
 }
 
 .ResumeBtn:hover {
     background-color: #449d44;
-    border: 3px solid #77e677; 
+    border: 3px solid #77e677;
     cursor: pointer;
 }

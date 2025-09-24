@@ -7,14 +7,14 @@
 .container {
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between; /* space them apart */
-  align-items: center; /* center vertically */
-  background-color: #4C5B5C;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: #292F36;
   color: #FEFFFE;
   border-radius: 3rem;
   margin: 20px auto 0 auto;
   width: 90%;
-  max-width: 1200px; /* keep it from stretching too much on big screens */
+  max-width: 1200px; 
 }
 
 .profile {
@@ -28,7 +28,7 @@
 }
 
 .settings {
-  font-size: 1.5rem; /* make the icon a bit larger */
+  font-size: 1.5rem; 
 }
 
 .lang {
@@ -39,7 +39,7 @@
 
 .lang:hover {
     color: #5ee229;
-    filter: drop-shadow(0 0 6px #51CB20); /* green glow */
+    filter: drop-shadow(0 0 6px #51CB20);
 }
 
 .theme {
@@ -51,10 +51,9 @@
 
 .theme:hover {
     color: #5ee229;
-    filter: drop-shadow(0 0 6px #51CB20); /* green glow */
+    filter: drop-shadow(0 0 6px #51CB20); 
 }
 
-/* 📱 Small screen adjustments */
 @media (max-width: 600px) {
   .container {
     flex-direction: column;

@@ -1,0 +1,43 @@
+.sessionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 4rem;
+}
+
+.sessionContainer div {
+    background-color: #E9EBF8;
+    text-align: center;
+    border-radius: 2rem;
+    width: 15%;
+    padding: 1%;
+}
+
+.sessionContainer div p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn button {
+    padding: 20px;
+    border-radius: .9rem;
+    background-color: #e0e0e0;
+    font-size: 18px;
+    font-weight: 500;
+    min-width: 100px;
+
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}

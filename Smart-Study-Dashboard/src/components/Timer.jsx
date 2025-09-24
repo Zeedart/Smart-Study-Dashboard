@@ -26,17 +26,25 @@ export default function Timer() {
 
     function handleEnd() {
         const now = new Date();
-        const date = now.toLocaleDateString('en-US', {
+        const weekday = now.toLocaleDateString('en-US', {
             weekday: 'long',
+        });
+
+        const date = now.toLocaleDateString('en-US', {
             day: 'numeric',
             month: 'short',
             year: 'numeric'
         });
+
+        let timeString = now.toLocaleTimeString([], { hour: '2-digit', hour12: true })
+
         const timeInMinutes = Math.floor((25 * 60 - time) / 60);
 
         const sessionData = {
+            weekday: weekday,
             date: date,
-            time: `${timeInMinutes} mins`
+            time: timeString,
+            session: `${timeInMinutes} mins`
         };
 
         const storedHistory = localStorage.getItem('sessionHistory');
@@ -51,7 +59,6 @@ export default function Timer() {
         setIsRunning(false);
         setIsPaused(false);
         setIsFullScreen(false);
-        console.log(localStorage)
     }
 
     function handlePause() {

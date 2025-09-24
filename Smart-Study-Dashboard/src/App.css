@@ -1,0 +1,144 @@
+* {
+    font-family: 'inter', sans-serif;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup-inner {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  transform: translateY(0);
+  animation: slideUp 0.4s ease-out;
+  position: relative;
+}
+
+.popup h2 {
+  color: #2c3e50;
+  margin-bottom: 1.8rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.popup label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #34495e;
+  font-weight: 500;
+  text-align: left;
+}
+
+.popup input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.popup input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.popup button[type="submit"] {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.popup button[type="submit"]:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.popup button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Replace the existing close button styles with these */
+.popup button:not([type="submit"]) {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+  transition: color 0.2s ease;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.popup button:not([type="submit"]):hover {
+  color: #e74c3c;  /* Slightly softer red */
+  background-color: rgba(231, 76, 60, .8); /* 20% opacity */
+}
+
+.popup button:not([type="submit"]):active {
+  transform: scale(0.95);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0.8;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-inner {
+    padding: 1.8rem;
+    margin: 0 1rem;
+  }
+  
+  .popup h2 {
+    font-size: 1.5rem;
+  }
+}
