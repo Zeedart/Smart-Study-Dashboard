@@ -3,12 +3,20 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Timer from './components/Timer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faX, faHourglass } from '@fortawesome/free-solid-svg-icons'
 import SessionLog from './components/SessionLog'
+import DataChart from './components/DataChart'
 
 function App() {
   const [username, setUsername] = useState(localStorage.getItem('user') || "")
+  const [settings, setSettings] = useState(false)
   const [error, setError] = useState("")
+  const [pomodoro, setPomodoro] = useState(25)
+
+  function handleSettings(e) {
+    e.preventDefault()
+    setSettings(prev => !prev)
+  }
 
   function handleLogin(e) {
     e.preventDefault()
@@ -24,9 +32,36 @@ function App() {
     setError("")
   }
 
+  function saveSettings(e) {
+    e.preventDefault()
+    const value = Number(e.target.elements.pomodoro.value)  // convert to number
+    setPomodoro(value)
+    setSettings(prev => !prev)
+  }
+
 
   return (
     <>
+      {settings === true && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2><FontAwesomeIcon icon={faHourglass} />Timer</h2>
+            <form onSubmit={saveSettings}>
+              <label>
+                Pomodoro:
+                <input type="number" min={5} defaultValue={25} max={120} name="pomodoro" />
+                {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+              </label>
+              <button type="submit">OK</button>
+            </form>
+
+            <button>
+              <FontAwesomeIcon onClick={() => setSettings(prev => !prev)} icon={faX} />
+            </button>
+          </div>
+        </div>
+      )
+      }
       {username === "" && (
         <div className="popup">
           <div className="popup-inner">
@@ -39,16 +74,16 @@ function App() {
               </label>
               <button type="submit">Login</button>
             </form>
-
-            <button>
-              <FontAwesomeIcon icon={faX} />
-            </button>
           </div>
         </div>
       )}
-      <Navbar username={username} />
-      <Timer />
+      <Navbar username={username} handleSettings={handleSettings} />
+      <Timer pomodoro={pomodoro} />
       <SessionLog />
+      <div className="stats">
+        <DataChart />
+        <stats />
+      </div>
     </>
   )
 }

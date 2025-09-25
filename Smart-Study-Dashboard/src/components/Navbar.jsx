@@ -3,10 +3,10 @@ import pfp from "../assets/PFP.jpg"
 import styles from "../components/styles/navBar.module.css"
 
 /* import all the icons in Free Solid, Free Regular, and Brands styles */
-import { faLanguage, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage, faMoon, faGear } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function Navbar({username}) {
+export default function Navbar({username, handleSettings}) {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.profile}`}>
@@ -17,6 +17,8 @@ export default function Navbar({username}) {
         <FontAwesomeIcon className={`${styles.lang}`} icon={faLanguage}/>
 
         <FontAwesomeIcon className={`${styles.theme}`} icon={faMoon}/>
+
+        <FontAwesomeIcon onClick={handleSettings} className={`${styles.gear}`}  icon={faGear} />
       </div>
     </div>
   )

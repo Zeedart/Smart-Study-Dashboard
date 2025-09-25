@@ -99,3 +99,28 @@
     border: 3px solid #77e677;
     cursor: pointer;
 }
+.popup {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #60e62b, #51cbae);
+  color: white;
+  padding: 20px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeSlide 0.4s ease-out;
+  z-index: 999;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

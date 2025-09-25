@@ -2,12 +2,14 @@ import styles from "./styles/timer.module.css";
 import { useEffect, useState } from "react";
 import SmallTimer from "./timerComps/SmallTimer";
 import FullScreenTimer from "./timerComps/FullScreenTimer";
+import sound3 from "../assets/sound-3.mp3";
 
-export default function Timer() {
+export default function Timer({ pomodoro }) {
     const [isFullScreen, setIsFullScreen] = useState(false);
-    const [time, setTime] = useState(25 * 60);
+    const [time, setTime] = useState(pomodoro * 60);
     const [isRunning, setIsRunning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
+    const [popUpMsg, setPopUpMsg] = useState("");
 
     const formatTime = (timeInSeconds) => {
         const minutes = Math.floor(timeInSeconds / 60);
@@ -24,42 +26,64 @@ export default function Timer() {
         setIsPaused(false);
     }
 
-    function handleEnd() {
-        const now = new Date();
-        const weekday = now.toLocaleDateString('en-US', {
-            weekday: 'long',
-        });
-
-        const date = now.toLocaleDateString('en-US', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric'
-        });
-
-        let timeString = now.toLocaleTimeString([], { hour: '2-digit', hour12: true })
-
-        const timeInMinutes = Math.floor((25 * 60 - time) / 60);
-
-        const sessionData = {
-            weekday: weekday,
-            date: date,
-            time: timeString,
-            session: `${timeInMinutes} mins`
-        };
-
-        const storedHistory = localStorage.getItem('sessionHistory');
-        let sessionHistory = storedHistory ? JSON.parse(storedHistory) : [];
-
-        sessionHistory.push(sessionData);
-
-        localStorage.setItem('sessionHistory', JSON.stringify(sessionHistory));
-
-        // Reset the timer states
-        setTime(25 * 60);
-        setIsRunning(false);
-        setIsPaused(false);
-        setIsFullScreen(false);
+    function playSound() {
+        const audio = new Audio(sound3);
+        audio.play();
     }
+
+    function handleEnd() {
+        const timeInMinutes = Math.floor((pomodoro * 60 - time) / 60);
+        if (timeInMinutes != 0) {
+            setPopUpMsg("⏰ Pomodoro finished! Take a break.");
+            playSound();
+            const now = new Date();
+            const weekday = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+            });
+
+            const date = now.toLocaleDateString('en-US', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
+
+            let timeString = now.toLocaleTimeString([], { hour: '2-digit', hour12: true })
+
+
+            const sessionData = {
+                weekday: weekday,
+                date: date,
+                time: timeString,
+                session: `${timeInMinutes} mins`
+            };
+
+            const storedHistory = localStorage.getItem('sessionHistory');
+            let sessionHistory = storedHistory ? JSON.parse(storedHistory) : [];
+
+            sessionHistory.push(sessionData);
+
+            localStorage.setItem('sessionHistory', JSON.stringify(sessionHistory));
+
+            // Reset the timer states
+            setTime(pomodoro * 60);
+            setIsRunning(false);
+            setIsPaused(false);
+            setIsFullScreen(false);
+        }
+        else {
+            setTime(pomodoro * 60);
+            setIsRunning(false);
+            setIsPaused(false);
+            setIsFullScreen(false);
+        }
+    }
+
+    useEffect(() => {
+        if (popUpMsg) {
+            const timer = setTimeout(() => setPopUpMsg(""), 4000);
+            return () => clearTimeout(timer);
+        }
+    }, [popUpMsg]);
 
     function handlePause() {
         setIsPaused(prev => !prev);
@@ -77,8 +101,21 @@ export default function Timer() {
         return () => clearInterval(interval);
     }, [isRunning, isPaused, time]);
 
+    useEffect(() => {
+        // Reset timer whenever pomodoro changes
+        setTime(pomodoro * 60);
+        setIsRunning(false);
+        setIsPaused(false);
+    }, [pomodoro]);
+
+
     return (
         <>
+            {popUpMsg && (
+                <div className={styles.popup}>
+                    {popUpMsg}
+                </div>
+            )}
             <div className={`${isFullScreen ? styles.fullTimerContainer : styles.timerContainer}`}>
                 <p>{formatTime(time)}</p>
                 {isFullScreen ?

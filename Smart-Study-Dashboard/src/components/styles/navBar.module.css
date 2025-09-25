@@ -8,13 +8,13 @@
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   background-color: #292F36;
   color: #FEFFFE;
   border-radius: 3rem;
   margin: 20px auto 0 auto;
   width: 90%;
-  max-width: 1200px; 
+  max-width: 1200px;
 }
 
 .profile {
@@ -28,30 +28,41 @@
 }
 
 .settings {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
 
 .lang {
-    font-size: 2rem;
-    color: #FEFFFE;
-    cursor: pointer;
+  font-size: 2rem;
+  color: #FEFFFE;
+  cursor: pointer;
 }
 
 .lang:hover {
-    color: #5ee229;
-    filter: drop-shadow(0 0 6px #51CB20);
+  color: #5ee229;
+  filter: drop-shadow(0 0 6px #51CB20);
 }
 
 .theme {
-    font-size: 2rem;
-    margin-left: 20px;
-    color: #FEFFFE;
-    cursor: pointer;
+  font-size: 2rem;
+  margin-left: 20px;
+  color: #FEFFFE;
+  cursor: pointer;
 }
 
 .theme:hover {
-    color: #5ee229;
-    filter: drop-shadow(0 0 6px #51CB20); 
+  color: #5ee229;
+  filter: drop-shadow(0 0 6px #51CB20);
+}
+
+.gear {
+  font-size: 2rem;
+  margin-left: 20px;
+  color: #FEFFFE;
+  cursor: pointer;
+}
+.gear:hover {
+  color: #5ee229;
+  filter: drop-shadow(0 0 6px #51CB20);
 }
 
 @media (max-width: 600px) {
