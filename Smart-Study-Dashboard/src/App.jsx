@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX, faHourglass } from '@fortawesome/free-solid-svg-icons'
 import SessionLog from './components/SessionLog'
 import DataChart from './components/DataChart'
+import Stats from './components/Stats'
 
 function App() {
   const [username, setUsername] = useState(localStorage.getItem('user') || "")
@@ -82,7 +83,7 @@ function App() {
       <SessionLog />
       <div className="stats">
         <DataChart />
-        <stats />
+        <Stats />
       </div>
     </>
   )

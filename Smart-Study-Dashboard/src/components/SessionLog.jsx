@@ -21,6 +21,23 @@ export default function SessionLog() {
         };
     }, []);
 
+        const formatTimeInteger = (timeInteger) => {
+
+        const hour24 = Math.floor(timeInteger / 100); 
+        const minute = timeInteger % 100;             
+
+
+        const ampm = hour24 >= 12 ? 'PM' : 'AM';
+
+
+        const hour12 = hour24 % 12 || 12;
+
+
+        const minuteString = String(minute).padStart(2, '0');
+
+        return `${hour12}:${minuteString} ${ampm}`;
+    };
+
     return (
         <>
             <div className={styles.sessionContainer}>
@@ -32,8 +49,8 @@ export default function SessionLog() {
                     <div key={index}>
                         <p>{session.weekday}</p>
                         <p>{session.date}</p>
-                        <p>{session.time}</p>
-                        <p>{session.session}</p>
+                        <p>{formatTimeInteger(session.time)}</p>
+                        <p>{session.session} mins</p>
                     </div>
                 ))}
             </div>
