@@ -1,0 +1,58 @@
+/* Stats.module.css additions for footer */
+
+.appFooter {
+    border-top: 1px solid #e9ecef; /* Light separator line */
+    padding: 25px 50px;
+    background-color: #f8f9fa; /* Matches the stat container background */
+    color: #6c757d; /* Soft gray text */
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerBrand {
+    font-weight: 700;
+    color: #4CAF50; /* Primary brand color */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.footerLinks a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+.footerCopy {
+    font-size: 0.8rem;
+}
+
+.footerCredit {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footerCredit a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 700;
+    transition: all 0.3ms ease-in;
+}
+
+.footerCredit a:hover {
+    color: #5dc761;
+}

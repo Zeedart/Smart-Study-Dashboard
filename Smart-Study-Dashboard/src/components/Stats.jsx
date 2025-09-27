@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react" // Use useMemo for performance optimization
-
+import styles from "./styles/stats.module.css"
 export default function Stats() {
-    const [data, setData] = useState([]); 
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const storedHistory = localStorage.getItem('sessionHistory');
@@ -15,8 +15,8 @@ export default function Stats() {
         }
     }, []);
 
-    
-    const now = new Date(); 
+
+    const now = new Date();
 
 
     const getDayStart = (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -27,7 +27,7 @@ export default function Stats() {
     const currentYear = now.getFullYear();
 
     const currentDay = getDayStart(now);
-    const dayOfWeek = currentDay.getDay(); 
+    const dayOfWeek = currentDay.getDay();
 
     const weekStart = getDayStart(
         new Date(currentDay.setDate(currentDay.getDate() - dayOfWeek))
@@ -85,10 +85,22 @@ export default function Stats() {
     }, [data, currentMonthAbbr, currentYear]);
 
     return (
-        <div>
-            <p>Today's Study: {formatTime(totalTodayMinutes)}</p>
-            <p>This Week's Study: {formatTime(totalWeekMinutes)}</p>
-            <p>This Month's Study: {formatTime(totalMonthMinutes)}</p>
+        <div className={styles.statsContainer}>
+            
+            <div className={styles.statCard}>
+                <p className={styles.label}>Today's Study</p>
+                <p className={styles.value}>{formatTime(totalTodayMinutes)}</p>
+            </div>
+
+            <div className={styles.statCard}>
+                <p className={styles.label}>This Week's Study</p>
+                <p className={styles.value}>{formatTime(totalWeekMinutes)}</p>
+            </div>
+            
+            <div className={styles.statCard}>
+                <p className={styles.label}>This Month's Study</p>
+                <p className={styles.value}>{formatTime(totalMonthMinutes)}</p>
+            </div>
         </div>
     )
 }

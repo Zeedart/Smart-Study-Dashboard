@@ -33,47 +33,52 @@ export default function Timer({ pomodoro }) {
 
     function handleEnd() {
         const timeInMinutes = Math.floor((pomodoro * 60 - time) / 60);
-        setPopUpMsg("⏰ Pomodoro finished! Take a break.");
-        playSound();
-        const now = new Date();
-        const weekday = now.toLocaleDateString('en-US', {
-            weekday: 'long',
-        });
+        if (timeInMinutes != 0) {
+            setPopUpMsg("⏰ Pomodoro finished! Take a break.");
+            playSound();
+            const now = new Date();
+            const weekday = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+            });
 
-        const date = now.toLocaleDateString('en-US', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric'
-        });
-
-        // Get 24-hour time components
-        const hour24 = now.getHours();   // 0-23
-        const minute = now.getMinutes(); // 0-59
-
-        // --- STEP 2: Create the HHMM Integer ---
-        // Multiply hours by 100 and add minutes (e.g., 16 * 100 + 5 = 1605)
-        const timeInteger = hour24 * 100 + minute;
+            const date = now.toLocaleDateString('en-US', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
 
 
-        const sessionData = {
-            weekday: weekday,
-            date: date,
-            time: timeInteger,
-            session: timeInMinutes
-        };
+            const hour24 = now.getHours();
+            const minute = now.getMinutes();
 
-        const storedHistory = localStorage.getItem('sessionHistory');
-        let sessionHistory = storedHistory ? JSON.parse(storedHistory) : [];
+            const timeInteger = hour24 * 100 + minute;
 
-        sessionHistory.push(sessionData);
 
-        localStorage.setItem('sessionHistory', JSON.stringify(sessionHistory));
+            const sessionData = {
+                weekday: weekday,
+                date: date,
+                time: timeInteger,
+                session: timeInMinutes
+            };
 
-        // Reset the timer states
-        setTime(pomodoro * 60);
-        setIsRunning(false);
-        setIsPaused(false);
-        setIsFullScreen(false);
+            const storedHistory = localStorage.getItem('sessionHistory');
+            let sessionHistory = storedHistory ? JSON.parse(storedHistory) : [];
+
+            sessionHistory.push(sessionData);
+
+            localStorage.setItem('sessionHistory', JSON.stringify(sessionHistory));
+
+            setTime(pomodoro * 60);
+            setIsRunning(false);
+            setIsPaused(false);
+            setIsFullScreen(false);
+        }
+        else {
+            setTime(pomodoro * 60);
+            setIsRunning(false);
+            setIsPaused(false);
+            setIsFullScreen(false);
+        }
     }
 
     useEffect(() => {
@@ -100,7 +105,6 @@ export default function Timer({ pomodoro }) {
     }, [isRunning, isPaused, time]);
 
     useEffect(() => {
-        // Reset timer whenever pomodoro changes
         setTime(pomodoro * 60);
         setIsRunning(false);
         setIsPaused(false);

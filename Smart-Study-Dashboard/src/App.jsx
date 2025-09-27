@@ -7,10 +7,12 @@ import { faX, faHourglass } from '@fortawesome/free-solid-svg-icons'
 import SessionLog from './components/SessionLog'
 import DataChart from './components/DataChart'
 import Stats from './components/Stats'
+import Footer from './components/Footer.jsx'
 
 function App() {
   const [username, setUsername] = useState(localStorage.getItem('user') || "")
   const [settings, setSettings] = useState(false)
+  const [darkTheme, setDarkTheme] = useState(false)
   const [error, setError] = useState("")
   const [pomodoro, setPomodoro] = useState(25)
 
@@ -83,8 +85,9 @@ function App() {
       <SessionLog />
       <div className="stats">
         <DataChart />
-        <Stats />
       </div>
+      <Stats />
+      <Footer />
     </>
   )
 }

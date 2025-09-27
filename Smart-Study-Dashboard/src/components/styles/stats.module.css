@@ -1,0 +1,46 @@
+.statsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 20px;
+    flex-wrap: wrap;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.statCard {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px 35px;
+    width: 500px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid #60E62B;
+}
+
+.statCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 2.2rem;
+    color: #343a40;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.unit {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4CAF50;
+}
