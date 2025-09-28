@@ -1,72 +1,99 @@
 # Smart Study Dashboard
 
-A personalized, interactive dashboard designed to help students **organize their academic life**, manage tasks, track progress, and maintain a balanced study schedule.
+A personalized, interactive dashboard designed to help students organize their academic life, manage tasks, track progress, and maintain a balanced study schedule.
 
 ## ✨ Features
 
-The Smart Study Dashboard is built to maximize your productivity and minimize stress with the following key features:
+- **Start Study Session**: Begin a focused study session with one click  
+- **Customizable Session Length**:  
+  - Minimum: **5 minutes**  
+  - Default: **25 minutes**  
+  - Maximum: **120 minutes**  
+- **Session Tracking**:  
+  - Each session stores the following data in **localStorage**:  
+    - Weekday  
+    - Session length  
+    - Date  
+    - Start time  
+- **Stats Overview**:  
+  - Total minutes/hours studied **today**  
+  - Weekly summary  
+  - Monthly summary  
+- **Theme Toggle**:  
+  - Switch between **Light** and **Dark** mode anytime  
 
-* **Task & Assignment Manager:** Easily add, categorize, and track the status of homework, projects, and deadlines.
-* **Study Timetable/Scheduler:** Visualize your class schedule, due dates, and personal study slots in a clean, calendar view.
-* **Progress Visualization:** Track your academic performance and study habits with insightful charts and metrics (e.g., time spent studying, task completion rates).
-* **Focus Tool:** *[e.g., Integrate a Pomodoro timer or distraction blocker.]*
-* **Customizable Widgets:** Pin and organize information important to you, such as upcoming exams, daily focus goals, and motivational quotes.
+## 🛠 Technologies Used
 
-## 🛠️ Technologies Used
-
-This project is built primarily with standard web technologies:
-
-* **Frontend:**
-    * **JavaScript** (ES6+)
-    * **HTML5**
-    * **CSS3**
-* **Framework/Library:** *[Insert specific framework here, e.g., React, Vue.js, or simply mention "Vanilla JavaScript"]*
-* **Package Manager:** npm
+- **Frontend**: JavaScript (ES6+), HTML5, CSS3  
+- **Framework / Library**: React, vanilla JS  
+- **Package Manager**: npm  
+- **Data Storage**: Browser localStorage  
+- **Other tools / libraries**: Font Awesome, Recharts, Bootstrap
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up a local copy of the project on your machine for development and testing.
+These instructions will get you a copy of the project up and running on your local machine for development and testing.
 
 ### Prerequisites
 
-You need to have **Node.js** and **npm** (Node Package Manager) installed on your system.
+You’ll need to have the following installed:
+
+- [Node.js](https://nodejs.org) (includes npm)  
+- *(Any other prerequisites, e.g. Yarn, a database, etc.)*
 
 ### Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/Zeedart/Smart-Study-Dashboard.git](https://github.com/Zeedart/Smart-Study-Dashboard.git)
-    cd Smart-Study-Dashboard
-    ```
-
-2.  **Install dependencies:**
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/Zeedart/Smart-Study-Dashboard.git
+   cd Smart-Study-Dashboard
+2. Install dependencies
     ```bash
     npm install
-    ```
-
-3.  **Run the application:**
+3. Run the development server
     ```bash
-    # Use the appropriate command for your project setup:
-    npm start
-    # or
     npm run dev
-    ```
 
-The application should now be running, typically accessible at `http://localhost:3000`.
+### Project Structure
+```bash
+Smart-Study-Dashboard/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── App.jsx
+│   └── index.css
+└── README.md
+```
+### 🤝 Contributing
 
-## ✍️ Contributing
+Contributions are welcome and greatly appreciated!  
+If you’d like to improve this project, here’s how you can help:
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+1. **Fork** the repository  
+2. **Create a feature branch**  
+   ```bash
+   git checkout -b feature/YourFeature
+3. Commit your changes with a clear message
+    ```bash
+    git commit -m "Add: description of feature or fix"
 
-1.  Fork the Project.
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
-4.  Push to the Branch (`git push origin feature/AmazingFeature`).
-5.  Open a Pull Request.
+4. Push to your branch
+    ```bash
+    git push origin feature/YourFeature
 
-## 📄 License
+5. Open a Pull Request describing your changes
 
-Distributed under the **[Insert License Here, e.g., MIT License]** License. See the `LICENSE` file for more information.
 
----
-Project Link: [https://github.com/Zeedart/Smart-Study-Dashboard](https://github.com/Zeedart/Smart-Study-Dashboard)
+## Contribution Guidelines
+
+1. Keep pull requests focused and small — one feature or bug fix at a time
+
+2. Follow the existing code style and structure
+
+3. Add comments where code may be unclear
+
+4. Test your changes before submitting
+
+5. Update documentation if your changes affect it
+
+6. Be respectful and constructive in discussions
