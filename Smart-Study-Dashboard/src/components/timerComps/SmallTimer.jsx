@@ -1,7 +1,7 @@
 import styles from "../styles/timer.module.css"
 
 
-export default function SmallTimer({ handleStart, toggleTimer }) {
+export default function SmallTimer({ handleStart, toggleTimer, theme }) {
 
     return (
 
@@ -9,7 +9,7 @@ export default function SmallTimer({ handleStart, toggleTimer }) {
             <button onClick={() => {
                 handleStart()
                 toggleTimer()
-            }} className={`${styles.startBtn}`}>Start</button>
+            }} className={`${theme ? styles.startLight: styles.startDark}`}>Start</button>
         </div>
     )
 }

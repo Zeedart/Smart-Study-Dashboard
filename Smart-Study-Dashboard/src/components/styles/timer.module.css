@@ -26,10 +26,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
     z-index: 1000;
     transform: scale(2);
     transition: transform 0.8s ease-in-out;
+}
+
+.lightTheme {
+    background-color: #f0f0f0;
+}
+
+.darkTheme {
+    background-color: #282828;
+    color: white;
 }
 
 .fullTimerContainer p {
@@ -60,13 +68,24 @@
     transition: all 0.25s ease;
 }
 
-.startBtn {
+.startLight {
     background-color: #60E62B;
 }
 
-.startBtn:hover {
+.startLight:hover {
     background-color: #51CB20;
     border: 3px solid #9DFF70;
+    cursor: pointer;
+}
+
+.startDark {
+    background-color: #A020F0;
+    color: white;
+}
+
+.startDark:hover {
+    background-color: #B24BF3;
+    border: 3px solid #E0B0FF;
     cursor: pointer;
 }
 
@@ -104,14 +123,22 @@
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #60e62b, #51cbae);
-  color: white;
   padding: 20px 20px;
   border-radius: 12px;
   font-weight: bold;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: fadeSlide 0.4s ease-out;
   z-index: 999;
+}
+
+.popupLight {
+  background: linear-gradient(135deg, #60e62b, #51cbae);
+  color: white;
+}
+
+.popupDark {
+    background: linear-gradient(135deg, #7E57C2, #4A148C);
+    color: white;
 }
 
 @keyframes fadeSlide {

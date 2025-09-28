@@ -1,10 +1,5 @@
-/* Stats.module.css additions for footer */
-
 .appFooter {
-    border-top: 1px solid #e9ecef; /* Light separator line */
     padding: 25px 50px;
-    background-color: #f8f9fa; /* Matches the stat container background */
-    color: #6c757d; /* Soft gray text */
     text-align: center;
     font-size: 0.9rem;
     margin-top: 40px;
@@ -13,9 +8,28 @@
     align-items: center;
 }
 
-.footerBrand {
+.appFooterLight {
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    color: #6c757d; 
+}
+
+.appFooterDark {
+    border-top: 1px solid #101010;
+    background-color: #121212;
+    color: #dbdbdb; 
+}
+
+.footerBrandLight {
     font-weight: 700;
-    color: #4CAF50; /* Primary brand color */
+    color: #4CAF50;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footerBrandDark {
+    font-weight: 700;
+    color: #b13bfaff;
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
@@ -46,13 +60,24 @@
     margin-bottom: 10px;
 }
 
-.footerCredit a {
+.nameLight {
     text-decoration: none;
     color: #4CAF50;
     font-weight: 700;
     transition: all 0.3ms ease-in;
 }
 
-.footerCredit a:hover {
+.nameDark {
+    text-decoration: none;
+    color: #b13bfaff;
+    font-weight: 700;
+    transition: all 0.3ms ease-in;
+}
+
+.nameDark:hover {
+ color : rgb(157, 45, 227);
+}
+
+.nameLight:hover {
     color: #5dc761;
 }

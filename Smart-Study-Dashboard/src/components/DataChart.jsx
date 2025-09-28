@@ -2,7 +2,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'r
 import { useState, useEffect } from 'react';
 
 
-export default function DataChart() {
+export default function DataChart({theme}) {
 
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -14,12 +14,13 @@ export default function DataChart() {
         window.addEventListener("storage", updateData);
         return () => window.removeEventListener("storage", updateData);
     }, []);
+    //#60e62b
 
 
     return (
-        <LineChart width={700} height={300} data={data} style={{ margin: "30px 20px"}}>
-            <CartesianGrid stroke="#aaa" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="session" stroke="#60e62b" strokeWidth={2} name="Session" />
+        <LineChart width={700} height={300} data={data} style={{ margin: "30px 20px"}}> 
+            <CartesianGrid stroke={`${theme ? "#aaa": "#e0e0e0ff"}`} strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="session" stroke={`${theme ? "#60e62b" : "#b13bfaff"}`} strokeWidth={2} name="Session" />
             <XAxis dataKey="date"/>
             <YAxis label={{ value: 'Minutes', position: 'insideLeft', angle: -90 }} />
             <Legend align="right" />

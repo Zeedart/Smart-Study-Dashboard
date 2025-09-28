@@ -1,18 +1,17 @@
-import styles from './styles/footer.module.css'; // Assuming you reuse the same module for simple styling
+import styles from './styles/footer.module.css';
 
-export default function Footer() {
-  // Use the current year for the copyright notice
+export default function Footer({theme}) {
   const currentYear = new Date().getFullYear(); 
 
   return (
-    <footer className={styles.appFooter}>
+    <footer className={`${styles.appFooter} ${theme ? styles.appFooterLight : styles.appFooterDark}`}>
       
-      <div className={styles.footerBrand}>
+      <div className={theme ? styles.footerBrandLight : styles.footerBrandDark}>
         FocusFlow 📚
       </div>
 
 
-      <p className={styles.footerCredit}>Made with ❤️ by <a href="https://github.com/Zeedart">Yazeed Alkalmi</a></p>
+      <p className={styles.footerCredit}>Made with ❤️ by <a className={`${theme ? styles.nameLight : styles.nameDark}`}  href="https://github.com/Zeedart">Yazeed Alkalmi</a></p>
 
       <p className={styles.footerCopy}>
         &copy; {currentYear} FocusFlow. All rights reserved.

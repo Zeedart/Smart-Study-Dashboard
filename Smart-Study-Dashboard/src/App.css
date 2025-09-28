@@ -17,8 +17,16 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+.popup-innerLight {
+  background-color: white;
+}
+
+.popup-innerDark {
+  background-color: #121212;
+}
+
+
 .popup-inner {
-  background: white;
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -29,14 +37,20 @@
   position: relative;
 }
 
-.popup h2 {
-  color: #2c3e50;
+.popup-header {
   margin-bottom: 1.8rem;
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
 }
 
+.popup-headerLight {
+    color: #2c3e50;
+}
+
+.popup-headerDark {
+  color: #FEFFFE;
+}
 .popup form {
   display: flex;
   flex-direction: column;
@@ -47,7 +61,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: #34495e;
   font-weight: 500;
   text-align: left;
 }
@@ -60,15 +73,14 @@
   transition: all 0.3s ease;
 }
 
+
 .popup input:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-.popup button[type="submit"] {
-  background: #3498db;
-  color: white;
+.submitBtn {
   border: none;
   padding: 0.8rem;
   border-radius: 8px;
@@ -77,18 +89,33 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
+  border: transparent 2px solid;
 }
 
-.popup button[type="submit"]:hover {
+.submitBtnLight {
+  background: #3498db;
+  color: white;
+}
+
+.submitBtnLight:hover {
   background: #2980b9;
   transform: translateY(-2px);
 }
 
-.popup button[type="submit"]:active {
+.submitBtnDark {
+  background: #A855F7;
+  color: white;
+}
+
+.submitBtnDark:hover {
+  background: 	#9333EA;
+  transform: translateY(-2px);
+}
+
+.submitBtn:active {
   transform: translateY(0);
 }
 
-/* Replace the existing close button styles with these */
 .popup button:not([type="submit"]) {
   position: absolute;
   top: 1rem;
@@ -108,8 +135,8 @@
 }
 
 .popup button:not([type="submit"]):hover {
-  color: #e74c3c;  /* Slightly softer red */
-  background-color: rgba(231, 76, 60, .8); /* 20% opacity */
+  color: #e74c3c; 
+  background-color: rgba(231, 76, 60, .8); 
 }
 
 .popup button:not([type="submit"]):active {

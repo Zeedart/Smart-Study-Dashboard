@@ -14,8 +14,17 @@
     padding: 1%;
 }
 
-.sessionContainer .session {
+.sessionContainer .sessionLight {
     background-color: #E9EBF8;
+    text-align: center;
+    border-radius: 1rem;
+    width: 15%;
+    padding: 1%;
+}
+
+.sessionContainer .sessionDark {
+    background-color: #282828;
+    color: white;
     text-align: center;
     border-radius: 1rem;
     width: 15%;
@@ -35,17 +44,35 @@
 .btn button {
     padding: 20px;
     border-radius: .9rem;
-    background-color: #e0e0e0;
     font-size: 18px;
     font-weight: 500;
     min-width: 100px;
-
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Add color/background transition */
 }
 
 .btn button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
+}
+
+.btnLight {
+    background-color: #e0e0e0;
+    color: #333333;
+}
+
+.btnLight:hover {
+    background-color: #cccccc;
+}
+
+.btnDark {
+    background-color: #b13bfaff;
+    color: #FEFFFE; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btnDark:hover {
+    background-color: #6a00c6; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }

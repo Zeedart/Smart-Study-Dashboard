@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react" // Use useMemo for performance optimization
 import styles from "./styles/stats.module.css"
-export default function Stats() {
+export default function Stats({theme}) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -85,21 +85,21 @@ export default function Stats() {
     }, [data, currentMonthAbbr, currentYear]);
 
     return (
-        <div className={styles.statsContainer}>
+        <div className={`${styles.statsContainer} ${theme? styles.statsContainerLight : styles.statsContainerDark}`}>
             
-            <div className={styles.statCard}>
-                <p className={styles.label}>Today's Study</p>
-                <p className={styles.value}>{formatTime(totalTodayMinutes)}</p>
+            <div className={`${styles.statCard} ${theme ? styles.statCardLight : styles.statCardDark}`}>
+                <p className={theme ? styles.labelLight : styles.labelDark}>Today's Study</p>
+                <p className={theme ? styles.valueLight : styles.valueDark}>{formatTime(totalTodayMinutes)}</p>
             </div>
 
-            <div className={styles.statCard}>
-                <p className={styles.label}>This Week's Study</p>
-                <p className={styles.value}>{formatTime(totalWeekMinutes)}</p>
+            <div className={`${styles.statCard} ${theme ? styles.statCardLight : styles.statCardDark}`}>
+                <p className={theme ? styles.labelLight : styles.labelDark}>This Week's Study</p>
+                <p className={theme ? styles.valueLight : styles.valueDark}>{formatTime(totalWeekMinutes)}</p>
             </div>
             
-            <div className={styles.statCard}>
-                <p className={styles.label}>This Month's Study</p>
-                <p className={styles.value}>{formatTime(totalMonthMinutes)}</p>
+            <div className={`${styles.statCard} ${theme ? styles.statCardLight : styles.statCardDark}`}>
+                <p className={theme ? styles.labelLight : styles.labelDark}>This Month's Study</p>
+                <p className={theme ? styles.valueLight : styles.valueDark}>{formatTime(totalMonthMinutes)}</p>
             </div>
         </div>
     )

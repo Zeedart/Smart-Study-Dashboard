@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import styles from "./styles/sessionLog.module.css"
 import JsonDownloadButton from './JsonDownloadButton';
 
-export default function SessionLog() {
+export default function SessionLog({theme}) {
     const [sessions, setSessions] = useState([]);
     useEffect(() => {
         const updateSessions = () => {
@@ -38,15 +38,17 @@ export default function SessionLog() {
         return `${hour12}:${minuteString} ${ampm}`;
     };
 
+    const buttonThemeClass = theme ? styles.btnLight : styles.btnDark;
+
     return (
         <>
             <div className={styles.sessionContainer}>
                 {sessions.length === 0 ? 
-                <div className={styles.session}>
+                <div className={theme ? styles.sessionLight : styles.sessionDark}>
                     <p>Start a sessions!</p>
                 </div>
                 : sessions.slice(-4).map((session, index) => (
-                    <div key={index}>
+                    <div className={theme ? styles.sessionLight : styles.sessionDark} key={index}>
                         <p>{session.weekday}</p>
                         <p>{session.date}</p>
                         <p>{formatTimeInteger(session.time)}</p>
@@ -54,10 +56,11 @@ export default function SessionLog() {
                     </div>
                 ))}
             </div>
-            <div className={styles.btn}>
+            <div className={`${styles.btn}`}>
                 <JsonDownloadButton
                     data={sessions}
                     filename="session_history.json"
+                    buttonClassName={buttonThemeClass} 
                 />
             </div>
         </>

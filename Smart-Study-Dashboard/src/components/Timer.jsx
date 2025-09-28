@@ -4,7 +4,7 @@ import SmallTimer from "./timerComps/SmallTimer";
 import FullScreenTimer from "./timerComps/FullScreenTimer";
 import sound3 from "../assets/sound-3.mp3";
 
-export default function Timer({ pomodoro }) {
+export default function Timer({ theme, pomodoro }) {
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [time, setTime] = useState(pomodoro * 60);
     const [isRunning, setIsRunning] = useState(false);
@@ -33,7 +33,7 @@ export default function Timer({ pomodoro }) {
 
     function handleEnd() {
         const timeInMinutes = Math.floor((pomodoro * 60 - time) / 60);
-        if (timeInMinutes != 0) {
+        if (timeInMinutes > 0){
             setPopUpMsg("⏰ Pomodoro finished! Take a break.");
             playSound();
             const now = new Date();
@@ -72,8 +72,7 @@ export default function Timer({ pomodoro }) {
             setIsRunning(false);
             setIsPaused(false);
             setIsFullScreen(false);
-        }
-        else {
+        }else{
             setTime(pomodoro * 60);
             setIsRunning(false);
             setIsPaused(false);
@@ -115,11 +114,13 @@ export default function Timer({ pomodoro }) {
     return (
         <>
             {popUpMsg && (
-                <div className={styles.popup}>
+                <div className={`${styles.popup} ${theme ? styles.popupLight : styles.popupDark}`}>
                     {popUpMsg}
                 </div>
             )}
-            <div className={`${isFullScreen ? styles.fullTimerContainer : styles.timerContainer}`}>
+            <div className={`${isFullScreen ? styles.fullTimerContainer : styles.timerContainer}
+                            ${theme ? styles.lightTheme : styles.darkTheme}
+                `}>
                 <p>{formatTime(time)}</p>
                 {isFullScreen ?
                     <FullScreenTimer
@@ -128,7 +129,7 @@ export default function Timer({ pomodoro }) {
                         isPaused={isPaused}
                     />
                     :
-                    <SmallTimer handleStart={handleStart} toggleTimer={toggleTimer} />
+                    <SmallTimer theme={theme} handleStart={handleStart} toggleTimer={toggleTimer} />
                 }
             </div>
         </>

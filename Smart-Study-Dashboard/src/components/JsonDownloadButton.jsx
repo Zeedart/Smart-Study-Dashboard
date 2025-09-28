@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JsonDownloadButton = ({ data, filename }) => {
+const JsonDownloadButton = ({ data, filename, buttonClassName }) => {
   const downloadJson = () => {
     const jsonString = JSON.stringify(data, null, 2);
 
@@ -19,8 +19,10 @@ const JsonDownloadButton = ({ data, filename }) => {
     URL.revokeObjectURL(url);
   };
 
+  
+
   return (
-    <button onClick={downloadJson}>
+    <button onClick={downloadJson} className={buttonClassName}>
       Download LOG
     </button>
   );

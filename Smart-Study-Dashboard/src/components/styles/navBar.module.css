@@ -9,12 +9,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #292F36;
-  color: #FEFFFE;
   border-radius: 3rem;
   margin: 20px auto 0 auto;
   width: 90%;
   max-width: 1200px;
+  transition: all;
+}
+
+.containerLight {
+  background-color: #292F36;
+  color: #FEFFFE;
+}
+
+.containerDark {
+  background-color: #282828;
+  color: white;
 }
 
 .profile {
@@ -33,11 +42,23 @@
 
 .lang {
   font-size: 2rem;
-  color: #FEFFFE;
   cursor: pointer;
 }
 
-.lang:hover {
+.langDark {
+  color: #FEFFFE;
+}
+
+.langDark:hover {
+  color: #A020F0;
+  filter: drop-shadow(0 0 6px #a73de8);
+}
+
+.langLight {
+  color: #FEFFFE;
+}
+
+.langLight:hover {
   color: #5ee229;
   filter: drop-shadow(0 0 6px #51CB20);
 }
@@ -45,13 +66,25 @@
 .theme {
   font-size: 2rem;
   margin-left: 20px;
-  color: #FEFFFE;
   cursor: pointer;
 }
 
-.theme:hover {
+.themeLight {
+  color: white;
+}
+
+.themeLight:hover {
   color: #5ee229;
   filter: drop-shadow(0 0 6px #51CB20);
+}
+
+.themeDark {
+  color: #FEFFFE;
+}
+
+.themeDark:hover {
+  color: #A020F0;
+  filter: drop-shadow(0 0 6px #a73de8);  
 }
 
 .gear {
@@ -60,9 +93,23 @@
   color: #FEFFFE;
   cursor: pointer;
 }
-.gear:hover {
+
+.gearLight {
+  color: white;
+}
+
+.gearLight:hover {
   color: #5ee229;
   filter: drop-shadow(0 0 6px #51CB20);
+}
+
+.gearDark {
+  color: white;
+}
+
+.gearDark:hover {
+  color: #A020F0;
+  filter: drop-shadow(0 0 6px #a73de8);  
 }
 
 @media (max-width: 600px) {
