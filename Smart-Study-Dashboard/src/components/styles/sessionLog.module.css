@@ -1,23 +1,17 @@
 .sessionContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0 auto;
     gap: 4rem;
-}
-
-.sessionContainer div {
-    background-color: #E9EBF8;
-    text-align: center;
-    border-radius: 2rem;
-    width: 15%;
-    padding: 1%;
 }
 
 .sessionContainer .sessionLight {
     background-color: #E9EBF8;
     text-align: center;
     border-radius: 1rem;
+    min-width: 15%;
     width: 15%;
     padding: 1%;
 }
@@ -27,6 +21,7 @@
     color: white;
     text-align: center;
     border-radius: 1rem;
+    min-width: 15%;
     width: 15%;
     padding: 1%;
 }
@@ -75,4 +70,42 @@
 .btnDark:hover {
     background-color: #6a00c6; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+    .sessionContainer .sessionLight,
+    .sessionContainer .sessionDark {
+        /*
+         * Take up the full width of the parent container on small screens.
+         * We subtract a small amount (4%) to account for padding/margins
+         * and prevent horizontal scrolling.
+         */
+        width: 96%;
+        min-width: 96%;
+        margin-bottom: 15px; /* Add some spacing between stacked elements */
+        padding: 4%; /* Increase padding for better touch targets */
+    }
+}
+
+@media (max-width: 1200px) {
+    .sessionContainer .sessionLight,
+    .sessionContainer .sessionDark {
+        /*
+         * Allow two elements to fit side-by-side.
+         * 48% allows for a gap between the two 48% elements.
+         */
+        width: 48%;
+        min-width: 48%;
+    }
+}
+
+@media (min-width: 1800px) {
+    .sessionContainer .sessionLight,
+    .sessionContainer .sessionDark {
+        /* Cap the size to prevent the text column from getting too wide */
+        max-width: 250px;
+        /* Ensure the percentage width remains small if the content allows */
+        width: 15%;
+        min-width: 150px; /* Set a reasonable minimum pixel width */
+    }
 }
