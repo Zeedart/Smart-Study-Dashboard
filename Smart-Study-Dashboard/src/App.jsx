@@ -12,13 +12,23 @@ import Footer from './components/Footer.jsx'
 function App() {
   const [username, setUsername] = useState(localStorage.getItem('user') || "")
   const [settings, setSettings] = useState(false)
-  const [theme, setTheme] = useState(true) // I Set Black: false, Light: True
+  const [theme, setTheme] = useState(() => {
+  const storedTheme = localStorage.getItem('theme');
+
+  if (storedTheme !== null && storedTheme !== '') {
+    return storedTheme === 'true';
+  }
+
+  return true; 
+});
+
   const [error, setError] = useState("")
   const [pomodoro, setPomodoro] = useState(25)
 
 
   useEffect(() => {
     document.body.style.transition = "background-color 0.3s ease-in-out";
+    localStorage.setItem('theme', theme)
 
     if (theme) {
       document.body.style.backgroundColor = "#FEFFFE";
