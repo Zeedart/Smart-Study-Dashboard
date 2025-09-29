@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import styles from "./styles/sessionLog.module.css"
-import JsonDownloadButton from './JsonDownloadButton';
+import TxtDownloadButton from "./txtDownloadButton.jsx"
 
 export default function SessionLog({theme}) {
     const [sessions, setSessions] = useState([]);
@@ -58,9 +58,9 @@ export default function SessionLog({theme}) {
                 ))}
             </div>
             <div className={`${styles.btn}`}>
-                <JsonDownloadButton
+                <TxtDownloadButton
                     data={sessions}
-                    filename="session_history.json"
+                    filename="session_history.txt"
                     buttonClassName={buttonThemeClass} 
                 />
             </div>
