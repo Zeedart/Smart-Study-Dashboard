@@ -92,7 +92,7 @@ function App() {
       }
       {username === "" && (
         <div className="popup">
-          <div className="popup-inner">
+          <div className={`popup-inner ${theme ? "popup-innerLight" : "popup-innerDark"}`}>
             <h2>Enter your name!</h2>
             <form onSubmit={handleLogin}>
               <label>
@@ -100,7 +100,7 @@ function App() {
                 <input type="text" name="username" />
                 {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
               </label>
-              <button type="submit">Login</button>
+              <button className={`submitBtn ${theme ? "submitBtnLight" : "submitBtnDark"}`} type="submit">Login</button>
             </form>
           </div>
         </div>
