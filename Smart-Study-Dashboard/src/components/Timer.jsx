@@ -73,6 +73,8 @@ export default function Timer({ theme, pomodoro }) {
             setIsPaused(false);
             setIsFullScreen(false);
         }else{
+            setPopUpMsg("To be added to your log, a session must last at least 1 minute❗");
+            playSound();
             setTime(pomodoro * 60);
             setIsRunning(false);
             setIsPaused(false);

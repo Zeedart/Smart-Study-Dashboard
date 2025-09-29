@@ -4,6 +4,7 @@ import JsonDownloadButton from './JsonDownloadButton';
 
 export default function SessionLog({theme}) {
     const [sessions, setSessions] = useState([]);
+    
     useEffect(() => {
         const updateSessions = () => {
             setSessions(JSON.parse(localStorage.getItem('sessionHistory')) || []);
